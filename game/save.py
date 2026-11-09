@@ -1,13 +1,16 @@
 import json, os
 PATH = os.path.join(os.path.expanduser("~"), ".joia_conhecimento_save.json")
-DEFAULT = {"done": 0, "lang": "pt", "sound": True}   # done = niveis concluidos (0..9)
+# done = niveis concluidos na campanha (0..9); char = personagem escolhido; chosen = ja escolheu alguma vez
+DEFAULT = {"done": 0, "lang": "pt", "sound": True, "char": "joao", "chosen": False}
 
 def load():
     try:
         with open(PATH, encoding="utf-8") as f:
-            return {**DEFAULT, **json.load(f)}
+            d = {**DEFAULT, **json.load(f)}
     except Exception:
-        return dict(DEFAULT)
+        d = dict(DEFAULT)
+    if d["char"] not in ("joao", "emilia"): d["char"] = "joao"
+    return d
 
 def write(data):
     try:

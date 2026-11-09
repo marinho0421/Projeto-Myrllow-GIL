@@ -3,7 +3,9 @@ W, H, T, FPS = 640, 360, 24, 60
 ROWS, GR = 15, 11            # linhas do mapa / linha do chao padrao
 GRAV, MAXFALL = 0.4, 9.0
 WALK, RUN, JUMP = 1.7, 2.7, -7.8
-PW, PH = 14, 38              # hitbox do protagonista
+PW, PH = 14, 38              # hitbox (igual para Joao e Emilia)
+CLIMB = 1.5                  # velocidade de escalada
+CHARS = ("joao", "emilia")    # personagens jogaveis (mesma fisica/hitbox; muda so o sprite)
 
 # paleta por mundo: ceu (topo, base), bloco, topo do bloco, plataforma, cor do fragmento
 WORLDS = [
